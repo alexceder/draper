@@ -29,10 +29,14 @@ module Draper
   end
 end
 
-class ActionController::TestCase
-  include Draper::TestCase::ViewContextTeardown
+if defined?(ActionController::TestCase)
+  class ActionController::TestCase
+    include Draper::TestCase::ViewContextTeardown
+  end
 end
 
-class ActionMailer::TestCase
-  include Draper::TestCase::ViewContextTeardown
+if defined?(ActionMailer::TestCase)
+  class ActionMailer::TestCase
+    include Draper::TestCase::ViewContextTeardown
+  end
 end
